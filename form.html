@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<head>
+<title>Comment Form</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+.center {
+    margin: auto;
+    width: 60%;
+    border: 1px solid #73AD21;
+    padding: 10px;
+}
+
+</style>
+<script>
+	function correct(){
+	var name = document.getElementById("name");
+	var commenct = document.getElementById("comment");
+
+	if(name.value.length>0&& comment.value.length>0)
+		document.getElementById("page_sub").disabled = false;
+	else(name.value.length<0 && comment.value.length < 0)
+		document.getElementById("page_sub").disabled = true;
+		}
+
+window.onload = function(){
+	document.getElementById("name").addEventListener('input', valid);
+	document.getElementById("comment").addEventListener('input', valid);
+};
+</script>
+</head>
+
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="center">
+<h3 align="center">
+Please fill out your information accordingly.
+</h3>
+
+<form id="textField" action="page_sub.php" method="post">
+<p align="center">First and Last name:</p>
+<p align="center"><input type="text" name="user" placeholder="Sam Owen"></p>
+<p align="center"><textarea rows="4" cols="50" name="talk" id="talk" form="textField" placeholder="500 word limit.."maxlength="500"></textarea></p>
+<br>
+<p align="center"><input type="submit" value="comment" id="page_sub" target="_blank"></p>
+</form>
+</div>
+</body>
+
+</html>

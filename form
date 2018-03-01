@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Form #1: course info</title>
+<style>
+div {
+	text-align: center;
+}
+
+h1 {
+	text-align: center;
+	color: red;
+}
+</style>
+
+<script language = "javascript">
+	var course1 = document.getElementById("csci").value;
+	var course2 = document.getElementById("mis").value;
+	var course3 = document.getElementById("math").value;
+
+        window.onload = function(){
+            showform();
+            showsubmit();
+            document.getElementById("submit").addEventListener('click',iframe);
+        }
+
+        function iframe(){
+            var year = document.querySelector('input[name="cat_term_in"]:checked').value;
+            var sub = document.getElementById("course").value;
+
+            if (selection == 0){
+		var cor = null;
+            }
+
+            if (selection.match(/CSCI/)){
+		var cor = document.getElementById("csci").value;
+            }
+
+            if (selection.match(/MIS/)){
+		var cor = document.getElementById("mis").value;
+            }
+
+            if (selection.match(/MATH/)){
+		var cor = document.getElementById("math").value;
+            }
+
+            document.getElementById("window").src = "https://bweb.hpu.edu:4443/hpud/bwckctlg.p_disp_course_detail?cat_term_in=" + year +"&subj_code_in="+ sub +"&crse_numb_in="+cor;
+        }
+
+	function showform()
+	{
+	var selection = document.getElementById("course").value;
+
+
+	if (selection == 0){
+		document.getElementById("csci").style.display = "none";
+		document.getElementById("mis").style.display = "none";
+		document.getElementById("math").style.display = "none";
+	}
+
+	if (selection.match(/CSCI/)){
+		document.getElementById("csci").style.display = "block";
+		document.getElementById("mis").style.display = "none";
+		document.getElementById("math").style.display = "none";
+	}
+
+	if (selection.match(/MIS/)){
+		document.getElementById("csci").style.display = "none";
+		document.getElementById("mis").style.display = "block";
+		document.getElementById("math").style.display = "none";
+	}
+
+	if (selection.match(/MATH/)){
+		document.getElementById("csci").style.display = "none";
+		document.getElementById("mis").style.display = "none";
+		document.getElementById("math").style.display = "block";
+	}
+
+	function showsubmit()
+	{
+	if(course1 == 0 && course2 == 0 && course3 ==0){
+		$("submit").prop('disabled', true);
+	}
+
+	if(course1 != 0 || course2 != 0 || course3 != 0){
+		$("submit").prop('disabled', false);
+	}
+	}
+
+	}
+</script>
+</head>
+
+<body>
+<h1> COMPUTER SCIENCE COURSE INFO </h1>
+<hr>
+<div>
+<!--<form action="https://bweb.hpu.edu:4443/hpud/bwckctlg.p_disp_course_detail"> -->
+Term: <input type="radio" value="201680" name="cat_term_in" checked> Fall 2016 &nbsp;
+	  <input type="radio" value="201720" name="cat_term_in" > Spring 2017 &nbsp;
+	  <input type="radio" value="201780" name="cat_term_in" > Fall 2017 &nbsp;
+	  <input type="radio" value="201820" name="cat_term_in" > Spring 2018 &nbsp;
+	  <input type="radio" value="201880" name="cat_term_in" > Fall 2018 &nbsp; <br>
+
+Course Alpha:
+	<select name="subj_code_in" id="course" onchange="showform()">
+	<option selected value = 0>Please choose a course alpha</option>
+	<option value="CSCI"> CSCI </option>
+	<option value="MIS"> MIS </option>
+	<option value="MATH"> MATH </option>
+	</select><br>
+</div>
+
+<div id="csci" style="display:none">
+Course Number:
+	<select name="crse_numb_in" id="csci" onchange="showsubmit()">
+	<option selected value = 0>-----------------------------------------------------</option>
+	<option value="1041">CSCI 1041 - Digital Literacy in a Global Society</option>
+	<option value="1061">CSCI 1061 - Mobile Technologies for the 21st Century</option>
+	<option value="1534">CSCI 1534 - Data Analysis and Visualization: the Good, the Bad, the Ugly</option>
+	<option value="1555">CSCI 1555 - Health Information Systems</option>
+	<option value="1611">CSCI 1611 - A Gentle Introduction to Computer Programming</option>
+	<option value="1911">CSCI 1911 - Foundations of Programming</option>
+	<option value="2301">CSCI 2301 - Discrete Mathematics for Computer Science</option>
+	<option value="2611">CSCI 2611 - A Gentle Introduction to Computer Programming</option>
+	<option value="2761">CSCI 2761 - HTML and Web Design</option>
+	<option value="2911">CSCI 2911 - Computer Science I</option>
+	<option value="2916">CSCI 2916 - Computer Science I Lab</option>
+	<option value="2912">CSCI 2912 - Computer Science II</option>
+	<option value="2913">CSCI 2913 - Data Structures</option>
+	<option value="3001">CSCI 3001 - Assembly Language and Systems Programming</option>
+	<option value="3101">CSCI 3101 - Algorithms</option>
+	<option value="3106">CSCI 3106 - Programming Challenges</option>
+	<option value="3211">CSCI 3211 - Systems Analysis</option>
+	<option value="3242">CSCI 3242 - Modeling and Simulation</option>
+	<option value="3301">CSCI 3301 - Database Technologies</option>
+	<option value="3302">CSCI 3302 - Data Mining and Knowledge Engineering</option>
+	<option value="3401">CSCI 3401 - Data Communications</option>
+	<option value="3501">CSCI 3501 - Computer Organization</option>
+	<option value="3601">CSCI 3601 - Operating Systems</option>
+	<option value="3611">CSCI 3611 - UNIX Systems Administration</option>
+	<option value="3621">CSCI 3621 - Networking</option>
+	<option value="3632">CSCI 3632 - Internet Programming</option>
+	<option value="3640">CSCI 3640 - Computer Security and Information Assurance</option>
+	<option value="3651">CSCI 3651 - Game Programming</option>
+	<option value="3721">CSCI 3721 - C#</option>
+	<option value="3731">CSCI 3731 - Problem Solving and Programming Using C++</option>
+	<option value="3771">CSCI 3771 - Python</option>
+	<option value="3776">CSCI 3776 - Ruby on Rails</option>
+	<option value="3911">CSCI 3911 - Software Engineering</option>
+	<option value="3990">CSCI 3990 - Nonpaid Internship</option>
+	<option value="3991">CSCI 3991 - Paid Internship</option>
+	<option value="4620">CSCI 4620 - Computer System Forensics</option>
+	<option value="4640">CSCI 4640 - Advanced Topics in Cybersecurity</option>
+	<option value="4701">CSCI 4701 - Introduction to the Theory of Computation</option>
+	<option value="4702">CSCI 4702 - Mobile Programming</option>
+	<option value="4705">CSCI 4705 - Artificial Intelligence</option>
+	<option value="4911">CSCI 4911 - Software Project I</option>
+	<option value="4931">CSCI 4931 - Systems Administration</option>
+	<option value="4997">CSCI 4997 - Directed Readings in Computer Science</option>
+	</select>
+</div>
+
+<div id="mis" style="display:none">
+Course Number:
+	<select name="crse_numb_in" id="mis" onchange="showsubmit()">
+	<option selected value = 0>-----------------------------------------------------</option>
+	<option value="2000">MIS 2000 - Information Tools for Business</option>
+	<option value="3000">MIS 3000 - Foundations of Info Systems</option>
+	<option value="3020">MIS 3020 - IS Project Management</option>
+	<option value="3050">MIS 3050 - Application Development</option>
+	<option value="3060">MIS 3060 - Systems Analysis and Design</option>
+	<option value="3070">MIS 3070 - IT Infrastructure</option>
+	</select>
+</div>
+
+<div id="math" style="display:none">
+Course Number:
+	<select name="crse_numb_in" id="math" onchange="showsubmit()">
+	<option selected value = 0>-----------------------------------------------------</option>
+	<option value="1101">MATH 1101 - Fundamentals of College Math</option>
+	<option value="1102">MATH 1102 - Fundamentals of Mathematics Laboratory</option>
+	<option value="1105">MATH 1105 - Intermediate Algebra</option>
+	<option value="1106">MATH 1106 - Intermediate Algebra Laboratory</option>
+	<option value="1115">MATH 1115 - Survey of Mathematics</option>
+	<option value="1123">MATH 1123 - Statistics</option>
+	<option value="1130">MATH 1130 - Pre Calculus I</option>
+	<option value="1140">MATH 1140 - Pre Calculus II</option>
+	<option value="1150">MATH 1150 - Pre Calculus I & II Accel</option>
+	<option value="2007">MATH 2007 - Math Across the Ages </option>
+	<option value="2214">MATH 2214 - Calculus I</option>
+	<option value="2215">MATH 2215 - Calculus II</option>
+	<option value="2216">MATH 2216 - Calculus III</option>
+	<option value="2220">MATH 2220 - Proof Writing </option>
+	<option value="2326">MATH 2326 - Mathematics for Decision Making</option>
+	<option value="3301">MATH 3301 - Discrete Mathematics</option>
+	<option value="3110">MATH 3110 - Foundations of Mathematical Logic and Applications</option>
+	<option value="3220">MATH 3220 - College Geometry</option>
+	<option value="3240">MATH 3240 - Mathematics Concepts for Elementary Teachers</option>
+	<option value="3302">MATH 3302 - Elementary Number Theory</option>
+	<option value="3305">MATH 3305 - Linear Algebra </option>
+	<option value="3307">MATH 3307 - Differential Equations</option>
+	<option value="3316">MATH 3316 - Problem Solving for Mathematics Teaching</option>
+	<option value="3320">MATH 3320 - Set Theory</option>
+	<option value="3330">MATH 3330 - Abstract Algebra</option>
+	<option value="3450">MATH 3450 - Real Analysis</option>
+	<option value="3460">MATH 3460 - Probability </option>
+	<option value="3470">MATH 3470 - Applied Statistics</option>
+	<option value="3500">MATH 3500 - Numerical Methods</option>
+	<option value="3990">MATH 3990 - Unpaid Internship</option>
+	<option value="4210">MATH 4210 - Topology</option>
+	<option value="4301">MATH 4301 - Combinatorics and Graph Theory</option>
+	<option value="4450">MATH 4450 - Complex Analysis</option>
+	<option value="4470">MATH 4470 - Methods of Applied Mathematics I</option>
+	<option value="4471">MATH 4471 - Methods of Applied Mathematics II</option>
+	<option value="4920">MATH 4920 - Math Education Practicum</option>
+	</select>
+</div>
+
+	</br>
+<div>
+<input type="submit" id="submit"/ >
+</div>
+<!-- </form> -->
+    <hr>
+    <iframe src="http://www.hpu.edu" id="window" style="width: 100%; height:800px;"></iframe>
+</body>
+</html>
